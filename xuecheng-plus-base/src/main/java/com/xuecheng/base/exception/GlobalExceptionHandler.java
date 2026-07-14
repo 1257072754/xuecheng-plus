@@ -2,7 +2,12 @@ package com.xuecheng.base.exception;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Mr.M
@@ -28,6 +33,21 @@ public class GlobalExceptionHandler {
     //解析出异常信息
     String errMessage = e.getErrMessage();
     RestErrorResponse restErrorResponse = new RestErrorResponse(errMessage);
+    return restErrorResponse;
+   }
+ //对项目的自定义异常类型进行处理
+   @ResponseBody
+   @ExceptionHandler(MethodArgumentNotValidException.class)
+   @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+ public RestErrorResponse methodArgumentNotValidException(MethodArgumentNotValidException e){
+       BindingResult bindingResult = e.getBindingResult();
+       List<String> errorMessages = new ArrayList<>();
+       bindingResult.getFieldErrors().stream().forEach(fieldError -> {
+           // 处理每个字段错误
+           errorMessages.add(fieldError.getDefaultMessage());
+       });
+       String errMessage = String.join(",", errorMessages);
+       RestErrorResponse restErrorResponse = new RestErrorResponse(errMessage);
     return restErrorResponse;
    }
 

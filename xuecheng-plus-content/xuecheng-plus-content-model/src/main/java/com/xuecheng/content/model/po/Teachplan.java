@@ -99,5 +99,4 @@ public class Teachplan implements Serializable {
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime changeDate;
 
-
 }

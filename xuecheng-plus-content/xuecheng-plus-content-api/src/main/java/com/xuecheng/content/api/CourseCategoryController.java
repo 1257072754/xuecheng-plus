@@ -20,10 +20,8 @@ public class CourseCategoryController {
     @Autowired
     CourseCategoryService courseCategoryService;
 
-
     @GetMapping("/course-category/tree-nodes")
-    public List<CourseCategoryTreeDto> queryTreeNodes() {
+    public List<CourseCategoryTreeDto> queryTreedNodes() {
         return courseCategoryService.queryTreeNodes("1");
     }
-
 }
