@@ -21,3 +21,11 @@ rad.json
 *.flf
 #Test results file
 TestResults.xml
+/logs/2026-06-25/error.2026-06-25-10.log
+/xuecheng-plus-content/xuecheng-plus-content-service/logs/
+/xuecheng-plus-generator/
+/logs/
+/xuecheng-plus-base/target/
+/xuecheng-plus-content/target/
+/xuecheng-plus-parent/target/
+/xuecheng-plus-system/target/

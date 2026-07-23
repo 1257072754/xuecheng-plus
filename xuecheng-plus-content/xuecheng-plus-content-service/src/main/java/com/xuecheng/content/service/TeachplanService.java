@@ -17,4 +17,7 @@ public interface TeachplanService {
 
     List<TeachplanDto> selectTreeNodes(Long courseId);
     void saveTeachplan(SaveTeachplanDto teachplan);
+    void delTeachplan(Long id);
+    void movedownTeachplan(Long id);
+    void moveupTeachplan(Long id);
 }

@@ -34,6 +34,10 @@ Content-Type: application/json
   "description": "java网络编程高级java网络编程高级java网络编程高级"
 }
 
-### 根据课程id查询课程信息​
+### 根据课程id查询课程信息
 GET {{content_host}}/content/course/40
+Content-Type: application/json
+
+### 根据课程id查询课程信息
+DELETE {{content_host}}/content/teachplan/299
 Content-Type: application/json
